@@ -24,7 +24,19 @@ module.exports = {
                       loader: 'babel-loader',
                       options:  {
                         // react用表記と、es2015表記を有効化
-                        presets: ['react','preset-env'],
+                        presets: [
+                            ['@babel/react'],
+                            ['@babel/env',
+                                {
+                                    "targets": {
+                                        "ie": 11
+                                    },
+                                    // 必要な分だけのpolyfillを自動でインポート
+                                    "useBuiltIns": "usage"
+                                }
+                            ]
+                        ],
+                        
           
                         // 開発時に変換結果をキャッシュする
                         // 本番用のビルドにはこの設定は不要
