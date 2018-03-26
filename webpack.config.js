@@ -24,7 +24,7 @@ module.exports = {
                       loader: 'babel-loader',
                       options:  {
                         // react用表記と、es2015表記を有効化
-                        presets: ['react','es2015'],
+                        presets: ['react','preset-env'],
           
                         // 開発時に変換結果をキャッシュする
                         // 本番用のビルドにはこの設定は不要
