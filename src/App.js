@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Hello from './Hello.jsx';
+import {red} from './style.css';
+
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <Hello />,
   document.getElementById('root')
 );
