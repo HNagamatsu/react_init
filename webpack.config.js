@@ -1,7 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
 module.exports = {
     /*
     * モード（webpack 4から追加された項目）の設定
@@ -18,7 +15,8 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'), // boolean | string | array, static file location
         open: true,
-        port: 3002
+        port: 3002,
+        publicPath: "/js/"
     },
     module: {
         rules:[

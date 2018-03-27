@@ -5,7 +5,7 @@ import './style.css';
 
 
 const Hello = () => (
-  <div className="red">Hellaaaaaaaaaaaaaao</div>
+  <div className="red">Hello</div>
 );
 
 export default Hello;
