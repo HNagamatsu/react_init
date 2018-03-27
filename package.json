@@ -8,8 +8,7 @@
     "build": "npx webpack --config webpack.config.js",
     "kill": "killall node",
     "open:local": "opener http://localhost:3000",
-    "webpack": "webpack && webpack-dev-server",
-    "start": "run-p kill webpack"
+    "start": "killall node && webpack && webpack-dev-server --hot --inline"
   },
   "repository": {
     "type": "git",

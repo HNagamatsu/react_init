@@ -10,35 +10,35 @@ module.exports = {
     */
     mode: 'development',
     entry: "./src/App.js",
-    app: [
-        "webpack-dev-server/client?http://localhost:3000",
-        "webpack/hot/dev-server",
-        "./src/App.js"
-    ],
+    // app: [
+    //     // "webpack-dev-server/client?http://localhost:3000",
+    //     // "webpack/hot/dev-server",
+    //     "./src/App.js"
+    // ],
     output: {
         // 出力するファイル名
         filename: 'bundle.js',
         // 出力先のパス（v2系以降は絶対パスを指定する必要がある）
         path: path.join(__dirname, '/dist/js/'),
-        publicPath: path.join(__dirname, '/dist/js/') // この行を追加
+        // publicPath: path.join(__dirname, '/dist/') // この行を追加
     },
     devServer: {
         contentBase: path.join(__dirname, "/dist/"),
         port: 3000,
-        open: true,
-        hot: true,
-        hotOnly: true,
-        watchContentBase: true,
-        inline: true
+        open: true
+        // hot: true,
+        // hotOnly: true,
+        // watchContentBase: true,
+        // inline: true
     },
-    plugins: [
-        new CleanWebpackPlugin(['dist/']),
-        new HtmlWebpackPlugin({
-          title: 'Hot Module Replacement'
-        }),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
-      ],
+    // plugins: [
+    //     new CleanWebpackPlugin(['dist/']),
+    //     new HtmlWebpackPlugin({
+    //       title: 'Hot Module Replacement'
+    //     }),
+    //     new webpack.NamedModulesPlugin(),
+    //     new webpack.HotModuleReplacementPlugin()
+    //   ],
     module: {
         rules:[
             {
