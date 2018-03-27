@@ -9,36 +9,17 @@ module.exports = {
     * productionにすればoptimization.minimizerという設定が有効になり、圧縮されたファイルが出力される
     */
     mode: 'development',
+    // watch: true,
     entry: "./src/App.js",
-    // app: [
-    //     // "webpack-dev-server/client?http://localhost:3000",
-    //     // "webpack/hot/dev-server",
-    //     "./src/App.js"
-    // ],
     output: {
-        // 出力するファイル名
-        filename: 'bundle.js',
-        // 出力先のパス（v2系以降は絶対パスを指定する必要がある）
-        path: path.join(__dirname, '/dist/js/'),
-        // publicPath: path.join(__dirname, '/dist/') // この行を追加
+        path: path.resolve(__dirname, "dist/js"), // string
+        filename: "bundle.js", // string
     },
     devServer: {
-        contentBase: path.join(__dirname, "/dist/"),
-        port: 3000,
-        open: true
-        // hot: true,
-        // hotOnly: true,
-        // watchContentBase: true,
-        // inline: true
+        contentBase: path.join(__dirname, 'dist'), // boolean | string | array, static file location
+        open: true,
+        port: 3002
     },
-    // plugins: [
-    //     new CleanWebpackPlugin(['dist/']),
-    //     new HtmlWebpackPlugin({
-    //       title: 'Hot Module Replacement'
-    //     }),
-    //     new webpack.NamedModulesPlugin(),
-    //     new webpack.HotModuleReplacementPlugin()
-    //   ],
     module: {
         rules:[
             {
@@ -63,10 +44,11 @@ module.exports = {
                         ],
                         // 開発時に変換結果をキャッシュする
                         // 本番用のビルドにはこの設定は不要
-                        cacheDirectory: true,
-                        plugins: [
-                            'transform-object-rest-spread', // {...rest} 表記を可能にする
-                        ]
+                        cacheDirectory: true
+                        // plugins: [
+                        //     // 'transform-object-rest-spread', // {...rest} 表記を可能にする
+                        //     'react-hot-loader/babel'
+                        // ]
                       }
                     }
                 ]

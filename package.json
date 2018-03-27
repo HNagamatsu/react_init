@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx webpack --config webpack.config.js",
+    "build": "webpack --progress --colors",
     "kill": "killall node",
     "open:local": "opener http://localhost:3000",
-    "start": "killall node && webpack && webpack-dev-server --hot --inline"
+    "server": "webpack-dev-server --hot --inline",
+    "start": "killall node && npm run build & npm run server"
   },
   "repository": {
     "type": "git",
