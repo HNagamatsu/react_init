@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {red} from './style.css';
+import {red} from '../style.css';
 
 
 const Hello = () => (

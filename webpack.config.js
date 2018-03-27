@@ -34,8 +34,9 @@ module.exports = {
                                     "targets": {
                                         "ie": 11
                                     },
-                                    // 必要な分だけのpolyfillを自動でインポート
-                                    "useBuiltIns": "usage"
+                                    
+                                    "useBuiltIns": "usage", // 必要な分だけのpolyfillを自動でインポート
+                                    // "modules": false, //webpack tree shakingの有効化
                                 }
                             ]
                         ],
@@ -68,6 +69,9 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        alias: {
+            components: path.resolve(__dirname, 'src/components')
+        }
     }
 };
