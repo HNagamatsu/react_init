@@ -15,7 +15,6 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'), // boolean | string | array, static file location
         open: true,
-        port: 3002,
         publicPath: "/js/"
     },
     module: {
