@@ -6,7 +6,6 @@ module.exports = {
     * productionにすればoptimization.minimizerという設定が有効になり、圧縮されたファイルが出力される
     */
     mode: 'development',
-    // watch: true,
     entry: "./src/App.js",
     output: {
         path: path.resolve(__dirname, "dist/js"), // string
@@ -34,19 +33,14 @@ module.exports = {
                                     "targets": {
                                         "ie": 11
                                     },
-                                    
                                     "useBuiltIns": "usage", // 必要な分だけのpolyfillを自動でインポート
-                                    // "modules": false, //webpack tree shakingの有効化
+                                    "modules": false //webpack tree shakingの有効化
                                 }
                             ]
                         ],
                         // 開発時に変換結果をキャッシュする
                         // 本番用のビルドにはこの設定は不要
                         cacheDirectory: true
-                        // plugins: [
-                        //     // 'transform-object-rest-spread', // {...rest} 表記を可能にする
-                        //     'react-hot-loader/babel'
-                        // ]
                       }
                     }
                 ]
@@ -56,9 +50,6 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader'
-                        // options: {
-                        // limit: 8192
-                        // }
                     }
                 ]
             },
