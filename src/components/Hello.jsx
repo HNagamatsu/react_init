@@ -1,25 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import { hot } from 'react-hot-loader'
-
-import {red} from '../style.css';
-import IMAGE from 'constant'
-const {
-  CHORO
-} = IMAGE;
-
+import { hot } from 'react-hot-loader';
 
 class Hello extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    count: 0
   }
+  increment = () => this.setState({ count: this.state.count + 1 });
   render() {
     return (
-      <div className={red}>
-        <h1>Helaaalo</h1>
-      </div>
-    );
+      <section>
+        <div>
+          <button onClick={this.increment}>
+            CLICKED {this.state.count} TIMES
+          </button>
+          <div>aaaxxxxaa</div>
+        </div>
+      </section>
+    )
   }
 }
+// export default Hello;
 
-export default Hello;
+export default hot(module)(Hello);
+// module.hot.accept();

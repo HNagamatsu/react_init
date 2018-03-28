@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 const path = require('path');
 module.exports = {
     /*
@@ -7,19 +8,28 @@ module.exports = {
     */
     mode: 'development',
     entry: {
-        bundle: "./src/App.js"
-        // assets: "./constant/index.js"
+        bundle: [
+            './src/App',
+            'webpack/hot/only-dev-server',
+            'webpack-dev-server/client?http://localhost:8080',
+            'react-hot-loader/patch'
+        ]
     },
     output: {
-        path: path.resolve(__dirname, "dist/js"), // string
-        // filename: "bundle.js", // string
+        path: path.resolve(__dirname, "dist/js"),
         filename: "[name].js"
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'), // boolean | string | array, static file location
+        contentBase: path.join(__dirname, 'dist'),
         open: true,
-        publicPath: "/js/"
+        publicPath: "/js/",
+        hot: true,
+        inline: true
     },
+    plugins: [
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ],
     module: {
         rules:[
             {
@@ -44,8 +54,8 @@ module.exports = {
                         ],
                         // 開発時に変換結果をキャッシュする
                         // 本番用のビルドにはこの設定は不要
-                        cacheDirectory: true
-                        // plugins: ['react-hot-loader/babel']
+                        cacheDirectory: true,
+                        plugins: ['react-hot-loader/babel']
                       }
                     }
                 ]
