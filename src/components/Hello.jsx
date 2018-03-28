@@ -1,15 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import { hot } from 'react-hot-loader'
 
 import {red} from '../style.css';
+import IMAGE from 'constant'
+const {
+  CHORO
+} = IMAGE;
 
 
-const Hello = () => {
-  let [a, b, ...c] = [1, 2, 3, 4, 5];
-  return (
-    <div className={red}>Hello + {a,b,c}</div>  
-  )
+class Hello extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className={red}>
+        <h1>Helaaalo</h1>
+      </div>
+    );
+  }
 }
-
 
 export default Hello;

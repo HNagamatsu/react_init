@@ -6,10 +6,14 @@ module.exports = {
     * productionにすればoptimization.minimizerという設定が有効になり、圧縮されたファイルが出力される
     */
     mode: 'development',
-    entry: "./src/App.js",
+    entry: {
+        bundle: "./src/App.js"
+        // assets: "./constant/index.js"
+    },
     output: {
         path: path.resolve(__dirname, "dist/js"), // string
-        filename: "bundle.js", // string
+        // filename: "bundle.js", // string
+        filename: "[name].js"
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'), // boolean | string | array, static file location
@@ -41,6 +45,7 @@ module.exports = {
                         // 開発時に変換結果をキャッシュする
                         // 本番用のビルドにはこの設定は不要
                         cacheDirectory: true
+                        // plugins: ['react-hot-loader/babel']
                       }
                     }
                 ]
@@ -62,7 +67,9 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            components: path.resolve(__dirname, 'src/components')
+            components: path.resolve(__dirname, 'src/components'),
+            images: path.resolve(__dirname, 'src/images'),
+            constant: path.resolve(__dirname, 'src/constant')
         }
     }
 };
