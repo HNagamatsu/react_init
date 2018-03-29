@@ -2,35 +2,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 module.exports = {
-    entry: {
-        bundle: './src/App'
-    },
+    entry: [
+        './src/App'
+    ],
     module: {
         rules:[
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                      loader: 'babel-loader',
-                      options:  {
-                        // react用表記と、es2015表記を有効化
+                use: [{
+                    loader: 'babel-loader',
+                    options:  {
                         presets: [
                             ['@babel/react'],
-                            ['@babel/env',
-                                {
-                                    "useBuiltIns": "usage", // 必要な分だけのpolyfillを自動でインポート
-                                    "modules": false //webpack tree shakingの有効化
-                                }
-                            ]
+                            ['@babel/env', {
+                                "useBuiltIns": "usage", // 必要な分だけのpolyfillを自動でインポート
+                                "modules": false //webpack tree shakingの有効化
+                            }]
                         ],
                         // 開発時に変換結果をキャッシュする
                         // 本番用のビルドにはこの設定は不要
                         cacheDirectory: true,
                         plugins: ['react-hot-loader/babel']
-                      }
                     }
-                ]
+                }]
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -41,9 +36,6 @@ module.exports = {
                 use: [ 'style-loader', 'css-loader?modules' ]
             }
         ]
-    },
-    devServer: {
-        open: true
     },
     plugins: [
         new CleanWebpackPlugin(),
