@@ -23,7 +23,6 @@ module.exports = {
                         // 開発時に変換結果をキャッシュする
                         // 本番用のビルドにはこの設定は不要
                         cacheDirectory: true,
-                        plugins: ['react-hot-loader/babel']
                     }
                 }]
             },
@@ -39,9 +38,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-          title: 'React init',
-        }),
+        new HtmlWebpackPlugin(),
     ],
     resolve: {
         extensions: ['.js', '.jsx'],
