@@ -1,35 +1,10 @@
-var webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 module.exports = {
-    /*
-    * モード（webpack 4から追加された項目）の設定
-    * development or production or none
-    * productionにすればoptimization.minimizerという設定が有効になり、圧縮されたファイルが出力される
-    */
-    mode: 'development',
     entry: {
-        bundle: [
-            './src/App',
-            'webpack/hot/only-dev-server',
-            'webpack-dev-server/client?http://localhost:8080',
-            'react-hot-loader/patch'
-        ]
+        bundle: './src/App'
     },
-    output: {
-        path: path.resolve(__dirname, "dist/js"),
-        filename: "[name].js"
-    },
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        open: true,
-        publicPath: "/js/",
-        hot: true,
-        inline: true
-    },
-    plugins: [
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
-    ],
     module: {
         rules:[
             {
@@ -44,9 +19,6 @@ module.exports = {
                             ['@babel/react'],
                             ['@babel/env',
                                 {
-                                    "targets": {
-                                        "ie": 11
-                                    },
                                     "useBuiltIns": "usage", // 必要な分だけのpolyfillを自動でインポート
                                     "modules": false //webpack tree shakingの有効化
                                 }
@@ -62,11 +34,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'url-loader'
-                    }
-                ]
+                use: 'url-loader'
             },
             {
                 test: /\.css$/,
@@ -74,6 +42,15 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        open: true
+    },
+    plugins: [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+          title: 'React init',
+        }),
+    ],
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
