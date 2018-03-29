@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Hello extends React.Component {
+
+class Hello2 extends React.Component {
   state = {
     count: 0,
   };
@@ -9,15 +10,14 @@ class Hello extends React.Component {
   render() {
     return (
         <div className="container">
-        <h1>HELL11O</h1>
-        <Link to={`/hello2`}>hello2</Link>
+          <h1>Hello2</h1>
+          <Link to={`/`}>hello</Link>
           <button className="button is-primary" onClick={this.increment}>
-            CLICKED {this.state.count} TIMES
+            CLICaaaaaaaaKED {this.state.count} TIMES
           </button>
-
         </div>
       )
   }
 }
 
-export default Hello;
+export default Hello2;
