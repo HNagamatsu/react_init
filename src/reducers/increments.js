@@ -13,12 +13,10 @@ const increments = (state = initialState, action)=> {
   switch (action.type) {
     case INCREMENTS : {
       console.log(action)
-      return Object.assign({}, 
-        state, 
-        {
-          count: state.count + 1,
-          text: action.payload
-        });
+      return Object.assign({}, state, {
+        count: state.count + 1,
+        text: action.payload
+      });
     }
     default:
       return state
