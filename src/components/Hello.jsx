@@ -13,7 +13,7 @@ class Hello extends React.Component {
         <div className="container">
         <h1>HELL11O</h1>
         <Link to={`/hello2`}>hello2</Link>
-          <button className="button is-primary" onClick={ () => this.props.Increment_Click("aaaaaaaa") }>
+          <button className="button is-primary" onClick={ () => this.props.increments("aaaaaaaa") }>
             CLICKED {this.props.count} TIMES
             {this.props.text}
           </button>
