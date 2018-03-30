@@ -1,16 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Hello from 'components/Hello'
-import inclements from 'actions/inclements'
+import { increments } from 'actions/inclements'
 
 function mapStateToProps(state) {
-  return state
+  return {
+      count: state.increments.count,
+      text: state.increments.text
+  };
 }
 
 // clickでactionを飛ばず
 function mapDispatchToProps(dispatch) {
   return {
-    Increment_Click: () => { dispatch(inclements.increment()) }
+    Increment_Click: (text) => { dispatch(increments(text)) }
   }
 }
 

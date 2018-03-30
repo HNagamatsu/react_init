@@ -1,9 +1,9 @@
 import { createStore } from 'redux';
-import increments from 'reducers/increments';
+import reducers from 'reducers/index';
 
 export default function configureStore() {
   const store = createStore(
-    increments
+    reducers
   )
   return store;
 }

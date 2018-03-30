@@ -2,8 +2,7 @@ import {
   INCREMENTS
 } from 'constant/action';
 
-export default {
-  increment: () => {
-    return { type: INCREMENTS }
-  }
-}
+export const increments = (text) => ({
+    type: INCREMENTS,
+    payload: text
+})

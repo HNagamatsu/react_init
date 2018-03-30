@@ -4,14 +4,21 @@ import {
 
 // 初期ステート設定
 const initialState = {
-  count: 0
+  count: 0,
+  text: "test"
 }
 
 // actionに応じてステート変更
 const increments = (state = initialState, action)=> {
   switch (action.type) {
     case INCREMENTS : {
-      return { count: state.count + 1 }
+      console.log(action)
+      return Object.assign({}, 
+        state, 
+        {
+          count: state.count + 1,
+          text: action.payload
+        });
     }
     default:
       return state
