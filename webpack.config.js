@@ -44,8 +44,11 @@ module.exports = {
         extensions: ['.js', '.jsx'],
         alias: {
             components: path.resolve(__dirname, 'src/components'),
+            container: path.resolve(__dirname, 'src/container'),
             images: path.resolve(__dirname, 'src/images'),
-            constant: path.resolve(__dirname, 'src/constant')
+            constant: path.resolve(__dirname, 'src/constant'),
+            reducers: path.resolve(__dirname, 'src/reducers'),
+            actions: path.resolve(__dirname, 'src/actions')
         }
     }
 };
