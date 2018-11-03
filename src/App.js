@@ -10,10 +10,10 @@ import configureStore from './store/configureStore';
 const store = configureStore();
 
 
- 
+
 // components
 import Hello from 'container/Hello';
-// import Hello2 from 'components/Hello2';
+import TodoList from 'container/TodoList';
 
 
 if (module.hot) {
@@ -22,11 +22,13 @@ if (module.hot) {
 render(
   <Provider store={store}>
     <Router history={history}>
-          <Switch>
-            <Route exact path="/" component={Hello} />
-            {/* <Route exact path="/hello2" component={Hello2} /> */}
-        </Switch>
+      <Switch>
+        <Route exact path="/" component={Hello} />
+        <Route exact path="/todoList" component={TodoList} />
+
+        {/* <Route exact path="/hello2" component={Hello2} /> */}
+      </Switch>
     </Router>
   </Provider>,
-  document.body
+  document.getElementById("app")
 );

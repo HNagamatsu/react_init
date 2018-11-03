@@ -6,13 +6,13 @@ module.exports = {
         './src/App'
     ],
     module: {
-        rules:[
+        rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: [{
                     loader: 'babel-loader',
-                    options:  {
+                    options: {
                         presets: [
                             ['@babel/react'],
                             ['@babel/env', {
@@ -32,13 +32,15 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 'style-loader', 'css-loader?modules' ]
+                use: ['style-loader', 'css-loader?modules']
             }
         ]
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: "./template.html"
+        }),
     ],
     resolve: {
         extensions: ['.js', '.jsx'],
