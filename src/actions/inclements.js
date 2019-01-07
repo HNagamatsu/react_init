@@ -1,8 +1,6 @@
-import {
-  INCREMENTS
-} from 'constant/action';
+export const INCREMENTS = "INCREMENTS";
 
 export const increments = (text) => ({
-    type: INCREMENTS,
-    payload: text
+  type: INCREMENTS,
+  payload: text
 })

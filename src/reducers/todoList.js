@@ -1,6 +1,6 @@
 import {
-  INCREMENTS
-} from 'actions/inclements';
+  TODOLIST__ADD
+} from 'actions/todoList';
 
 // 初期ステート設定
 const initialState = {
@@ -9,12 +9,11 @@ const initialState = {
 }
 
 // actionに応じてステート変更
-const increments = (state = initialState, action) => {
+const todoList = (state = initialState, action) => {
   switch (action.type) {
-    case INCREMENTS: {
+    case TODOLIST__ADD: {
       console.log(action)
       return Object.assign({}, state, {
-        count: state.count + 1,
         text: action.payload
       });
     }
@@ -23,4 +22,4 @@ const increments = (state = initialState, action) => {
   }
 }
 
-export default increments;
+export default todoList;

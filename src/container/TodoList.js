@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TodoList from 'components/TodoList'
-import { increments } from 'actions/inclements'
+import { add } from 'actions/todoList'
 
 // export default connect(
 //   state => ({
